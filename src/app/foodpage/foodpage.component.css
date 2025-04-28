@@ -1,0 +1,117 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 3rem;
+     /* height: 70vh; */
+    animation: fadeInBg 0.3s ease-in-out;
+  }
+
+
+.details{
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    flex: 1 0;
+    border-radius: 3rem;
+    padding: 2rem;
+    color: black;
+    margin-left: 1rem;
+
+}
+  
+.details .header{
+display: flex;
+justify-content: space-between;
+color: #06402B;
+font-weight: 500;
+margin-bottom: 1rem;
+font-size: 1.5rem;
+}
+
+.details .origins{
+    display: flex;
+    flex-wrap: flex wrap;
+    margin: 1rem 0 ;
+    
+
+}
+ 
+.details .origins > span{
+padding: 0.3rem;
+font-size: 1.2rem;
+margin: 0.5rem  0.5rem  0.5rem 0 ;
+border-radius: 2rem;
+background-color: #fff;
+color: #06402B;
+font-weight: 500;
+}
+
+.details .tags{
+    display: flex;
+    justify-content: flex-start;
+    color: #06402B;
+}
+
+.details .cook-time{
+    margin-top: 1rem;
+
+}
+
+.details .cook-time .prep-time{
+    color: #06402B;
+}
+
+.details .cook-time span{
+    padding: 6rem 2rem 2.6rem 0;
+    border-radius: 10rem;
+    font-size: 1.2rem;
+     
+}
+
+.details .price{
+    font-size: 1.2rem;
+    margin: 2rem 2rem 2rem 0;
+    color: #06402B;
+
+}
+
+.details .price::before{
+    content: "Price:";
+    color: #06402B;
+}
+
+.details button{
+    color: white;
+    background-color: #06402B;
+    border: none;
+    font-size: 1.2rem;
+    padding: .5rem  ;
+    border-radius: 10rem;
+}
+
+  .popup-img {
+    max-width: 70vw;
+    max-height: 70vh;
+    margin: 1rem;
+    object-fit: cover;
+    border-radius: 3rem;
+    flex: 1 0;
+    animation: zoomFade 0.4s ease-in-out;
+  transform-origin: center;
+  } 
+
+
+
+  @keyframes zoomFade {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+

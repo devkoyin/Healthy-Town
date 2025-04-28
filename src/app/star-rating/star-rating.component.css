@@ -1,0 +1,21 @@
+.star-rating {
+  display: flex;
+  gap: 4px;
+  cursor: pointer;
+}
+
+mat-icon {
+  color: #ddd; /* Default empty star */
+  transition: color 0.2s;
+}
+
+.filled {
+  color: green; /* Gold filled star */
+}
+.red{
+  color: red;
+}
+
+.half-filled {
+  color: #ffd700; /* Gold half-filled star */
+}

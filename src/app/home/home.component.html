@@ -1,0 +1,51 @@
+<app-search></app-search>
+<app-tags></app-tags>
+<app-not-found  [visible]="!foods || foods.length <= 0"
+notFoundMessage="Nothing Found!"
+resetLinkText="Reset"
+></app-not-found>
+<div>
+  <h3>OUR MENU</h3>
+  <!-- <img [src]="foodUrl" alt="Image from service" /> -->
+</div>
+<ul>
+  <li *ngFor="let food of foods">
+    <a routerLink="/food/{{food.id}}"><img src="{{ food.imageUrl }}" alt="" /></a>
+    <div class="content"></div>
+    <div class="name">{{ food.name }}</div>
+    <span class="favorite {{ food.favourite ?'' : 'not'}}">❤️</span>
+
+  
+    <!-- <p>Current Rating: {{ food.stars }} / 5</p> -->
+    
+   
+
+    <div class="product-item-footer">
+      <div class="origins">
+        <span *ngFor="let origin of food.origins"> 
+          {{origin}}
+        </span>
+      </div>
+   
+
+    <div class="cook-time">
+      <span>⏰</span>
+      {{food.cookTime}}
+    </div>
+
+    <div class="price">
+      <span>
+        {{food.price| currency:'₦':true}}
+      </span>
+    </div>
+  </div>
+
+  <div class="stars">
+    <app-star-rating
+
+    [currentRating]="food.stars"
+    (ratingChange)="updateRating(food.id, $event)"
+  ></app-star-rating>
+  </div>
+  </li>
+</ul>

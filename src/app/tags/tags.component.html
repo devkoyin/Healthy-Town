@@ -1,0 +1,35 @@
+<!-- <div *ngIf="tags">
+  <a *ngFor="let tag of tags" routerLink="/tag/{{ tag.name }}">
+    {{ tag.name }}({{ tag.count }})
+  </a>
+</div> -->
+
+<!-- Tags Navigation -->
+<div class="tags-list" [style.justifyContent] = "JustifyContent">
+  <a
+    *ngFor="let tag of tags"
+    [routerLink]="['/tag', tag.name]"
+    routerLinkActive="active"
+    class="tag-link">
+    {{ tag.name }} ({{ tag.count }})
+  </a>
+</div>
+
+
+<ng-template #noItems>
+  <p>No items found for "{{ 'tag' }}".</p>
+</ng-template>
+
+
+
+<div *ngIf="foodPageTags" [style.justifyContent] = "JustifyContent">
+  <a
+    *ngFor="let tagName of foodPageTags"
+    [routerLink]="['/tag', tagName]"
+    routerLinkActive="active"
+    class="tag-link">
+    {{tagName}}
+  </a>
+</div>
+
+

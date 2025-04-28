@@ -1,0 +1,38 @@
+header{
+    background:#E4FDE1 ;
+    padding:  0;
+    border-bottom: 2px solid #06402B;
+}
+
+a{
+    
+    color: #06402B ;
+    
+}
+
+a:hover{
+    background-color: #FFF;
+    color:#06402B;
+}
+
+.container{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+a.logo{
+    font-weight: bold;
+    /* 1em here represent 1 multiplied by the font-size of the ancestor which is 18pxnin this case...therefore we have(1*18px) */
+    padding: 1em;
+}
+
+nav ul{
+    list-style-type: none;
+    margin: 0;
+}
+
+nav ul li a  {
+    padding: 1em;
+    display: inline-block; 
+}

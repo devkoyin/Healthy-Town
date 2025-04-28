@@ -1,0 +1,13 @@
+<div class="star-rating">
+  <mat-icon 
+    *ngFor="let star of stars" 
+    (click)="setRating(star, $event)"
+    [class.filled]="star <= currentRating"
+    [class.red]="currentRating === 1"
+    [class.half-filled]="allowHalfStars && (star - 0.9 <= currentRating && currentRating < star)">
+    {{ 
+      star <= currentRating ? 'star' : 
+      (allowHalfStars && (star - 0.9 <= currentRating && currentRating < star) ? 'star_half' : 'star_border') 
+    }}
+  </mat-icon>
+</div>

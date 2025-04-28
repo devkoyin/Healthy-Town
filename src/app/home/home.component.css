@@ -1,0 +1,102 @@
+ul{
+    /* display: flex;  */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 2rem;
+    gap: 5rem;
+    justify-content: center;
+    align-items: center;
+     /* flex-wrap: wrap; */
+    list-style-type: none;
+}
+
+ul li a{
+    min-height: 22rem;
+    max-width: 17rem;
+    border: 1px solid whitesmoke;
+    border-radius: 1rem;
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column ;
+    overflow: hidden;
+    object-fit: contain; 
+}
+ 
+h3{
+    text-align: center;
+    color:#06402B;
+    font-style: bold;
+    font-size: 2rem;
+}
+
+li a:hover{
+    opacity: 70%;
+    cursor: pointer;
+}
+
+.star-rating {
+    cursor: pointer;
+    color: #ffd700; /* Gold color */
+  }
+
+  .content{
+    padding: 0.5rem 1rem;
+    position: absolute;
+    font-size: 2px;
+  }
+
+
+  .favorite{
+    position: relative;
+    bottom: 1.2rem; 
+    left :  15rem;
+    font-size: 1rem;
+  }
+
+
+  .favorite.not{
+    color:gray;
+  }
+
+
+  .name{
+    font-size: 1rem;
+  }
+
+
+  .stars{
+    margin-bottom: .2rem;
+  }
+
+  .stars p{
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .product-item-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+  }
+
+
+  .origins span{ 
+    border-radius: 2rem;
+    background-color: whitesmoke;
+    display: inline-block;
+    font-size: .7rem;
+    color: grey;
+    margin-right: .3rem ;
+  }
+
+  .cook-time{
+   font-size:  0.5rem;
+   text-align: right; 
+  }
+
+  .price{
+    color: #414141;
+    font-size:  1rem;
+    text-align: center;
+  }
