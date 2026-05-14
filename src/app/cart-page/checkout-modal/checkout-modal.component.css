@@ -6,14 +6,14 @@
 .dialog-header {
   background: #06402B;
   color: white;
-  padding: 14px 20px;
+  padding: 18px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .dialog-title {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.5px;
   font-family: "Montserrat", sans-serif;
@@ -38,7 +38,7 @@
 .stepper {
   display: flex;
   align-items: center;
-  padding: 14px 20px;
+  padding: 16px 24px;
   background: #f0fdf4;
   border-bottom: 1px solid #d1fae5;
 }
@@ -46,21 +46,21 @@
 .step {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 11px;
+  gap: 8px;
+  font-size: 12px;
   font-weight: 600;
   flex: 1;
   justify-content: center;
 }
 
 .step-dot {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -87,7 +87,7 @@
 
 /* ── Form body ── */
 .dialog-body {
-  padding: 18px 20px 20px;
+  padding: 22px 24px 24px;
 }
 
 .field-label {
@@ -113,8 +113,8 @@
   width: 100%;
   border: 1px solid #c6e8c0;
   border-radius: 6px;
-  padding: 8px 12px;
-  font-size: 13px;
+  padding: 10px 14px;
+  font-size: 14px;
   color: #06402B;
   background: #fafff9;
   outline: none;
@@ -144,10 +144,10 @@
   background: #06402B;
   color: white;
   border-radius: 6px;
-  padding: 6px 14px;
-  font-size: 13px;
+  padding: 8px 16px;
+  font-size: 15px;
   font-weight: 700;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .pay-tabs {
@@ -197,7 +197,7 @@
 
 .bank-note      { font-size: 11px; color: #555; margin-bottom: 8px; }
 .bank-name      { font-size: 13px; font-weight: 700; color: #06402B; }
-.bank-acct      { font-size: 22px; font-weight: 800; color: #06402B; letter-spacing: 2px; margin: 6px 0; }
+.bank-acct      { font-size: 26px; font-weight: 800; color: #06402B; letter-spacing: 3px; margin: 8px 0; }
 .bank-acct-name { font-size: 11px; color: #555; }
 .bank-timer     { font-size: 12px; color: #c0392b; margin-top: 10px; font-weight: 600; }
 
@@ -218,8 +218,8 @@
   color: white;
   border: none;
   border-radius: 24px;
-  padding: 11px;
-  font-size: 13px;
+  padding: 13px;
+  font-size: 14px;
   font-weight: 700;
   cursor: pointer;
   margin-top: 16px;
@@ -252,21 +252,21 @@
 /* ── Success screen ── */
 .success-header {
   background: linear-gradient(135deg, #06402B, #487800);
-  padding: 28px 20px 22px;
+  padding: 34px 24px 26px;
   text-align: center;
   color: white;
 }
 
 .checkmark-circle {
-  width: 58px;
-  height: 58px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 12px;
-  font-size: 28px;
+  margin: 0 auto 14px;
+  font-size: 34px;
   animation: popIn 0.4s ease-out;
 }
 
@@ -275,8 +275,8 @@
   to   { transform: scale(1);   opacity: 1; }
 }
 
-.success-title { font-size: 20px; font-weight: 800; margin-bottom: 4px; }
-.success-sub   { font-size: 12px; opacity: 0.85; }
+.success-title { font-size: 24px; font-weight: 800; margin-bottom: 6px; }
+.success-sub   { font-size: 14px; opacity: 0.85; }
 
 .order-badge {
   display: inline-block;
@@ -291,9 +291,9 @@
 }
 
 .order-items {
-  padding: 14px 20px;
+  padding: 16px 24px;
   border-bottom: 1px solid #e4fde1;
-  max-height: 140px;
+  max-height: 160px;
   overflow-y: auto;
 }
 
@@ -321,16 +321,16 @@
 .order-total-row {
   display: flex;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 12px 24px;
   background: #f0fdf4;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 15px;
   color: #06402B;
   border-bottom: 1px solid #d1fae5;
 }
 
 .delivery-info {
-  padding: 12px 20px;
+  padding: 14px 24px;
   border-bottom: 1px solid #e4fde1;
 }
 
@@ -354,6 +354,6 @@
   margin-top: 10px;
 }
 
-.success-footer { padding: 16px 20px; }
+.success-footer { padding: 18px 24px; }
 
 .success-btn { background: #487800; }
