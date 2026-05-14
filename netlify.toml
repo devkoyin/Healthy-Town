@@ -1,0 +1,6 @@
+[build]
+  command = "npm install --include=dev && npm run build"
+  publish = "dist/food-website-course/browser"
+
+[build.environment]
+  NODE_VERSION = "20"
