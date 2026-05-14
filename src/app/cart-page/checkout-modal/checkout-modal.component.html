@@ -1,0 +1,170 @@
+<!-- ───── STEP 1: DELIVERY DETAILS ───── -->
+<ng-container *ngIf="currentStep === 1">
+  <div class="dialog-header">
+    <span class="dialog-title">CHECKOUT</span>
+    <button class="close-btn" (click)="backToCart()">✕</button>
+  </div>
+
+  <div class="stepper">
+    <div class="step active">
+      <div class="step-dot">1</div>
+      <span class="step-label">Delivery</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step inactive">
+      <div class="step-dot">2</div>
+      <span class="step-label">Payment</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step inactive">
+      <div class="step-dot">3</div>
+      <span class="step-label">Confirm</span>
+    </div>
+  </div>
+
+  <div class="dialog-body" [formGroup]="deliveryForm">
+    <label class="field-label">Full Name</label>
+    <input class="field" formControlName="fullName" placeholder="e.g. Omolara Aworeni" />
+
+    <label class="field-label">Phone Number</label>
+    <input class="field" formControlName="phone" placeholder="e.g. 08012345678" maxlength="11" />
+    <div class="field-error"
+      *ngIf="deliveryForm.get('phone')?.invalid && deliveryForm.get('phone')?.touched">
+      Enter an 11-digit Nigerian phone number
+    </div>
+
+    <label class="field-label">Delivery Address</label>
+    <input class="field" formControlName="address" placeholder="e.g. 12 Lekki Phase 1, Lagos" />
+
+    <label class="field-label">
+      Delivery Note <span class="optional">(optional)</span>
+    </label>
+    <input class="field" formControlName="note" placeholder="e.g. Call when you arrive" />
+
+    <button class="btn-primary" (click)="goToPayment()" [disabled]="deliveryForm.invalid">
+      Continue to Payment →
+    </button>
+    <button class="btn-secondary" (click)="backToCart()">← Back to Cart</button>
+  </div>
+</ng-container>
+
+<!-- ───── STEP 2: PAYMENT ───── -->
+<ng-container *ngIf="currentStep === 2">
+  <div class="dialog-header">
+    <span class="dialog-title">CHECKOUT</span>
+    <button class="close-btn" (click)="backToCart()">✕</button>
+  </div>
+
+  <div class="stepper">
+    <div class="step done">
+      <div class="step-dot">✓</div>
+      <span class="step-label">Delivery</span>
+    </div>
+    <div class="step-line done"></div>
+    <div class="step active">
+      <div class="step-dot">2</div>
+      <span class="step-label">Payment</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step inactive">
+      <div class="step-dot">3</div>
+      <span class="step-label">Confirm</span>
+    </div>
+  </div>
+
+  <div class="dialog-body">
+    <div class="amount-badge">Total: {{ data.totalPrice | currency:'₦':true }}</div>
+
+    <div class="pay-tabs">
+      <button class="pay-tab" [class.active]="activePayTab === 'card'" (click)="setPayTab('card')">
+        💳 Card
+      </button>
+      <button class="pay-tab" [class.active]="activePayTab === 'transfer'" (click)="setPayTab('transfer')">
+        🏦 Bank Transfer
+      </button>
+    </div>
+
+    <!-- Card Tab -->
+    <div *ngIf="activePayTab === 'card'" [formGroup]="cardForm">
+      <div class="card-chip"></div>
+
+      <label class="field-label">Card Number</label>
+      <input class="field" formControlName="cardNumber"
+        placeholder="1234 5678 9012 3456" maxlength="16" />
+
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label">Expiry</label>
+          <input class="field" formControlName="expiry" placeholder="MM/YY" maxlength="5" />
+        </div>
+        <div class="field-group">
+          <label class="field-label">CVV</label>
+          <input class="field" formControlName="cvv" placeholder="•••" maxlength="3" type="password" />
+        </div>
+      </div>
+
+      <label class="field-label">Cardholder Name</label>
+      <input class="field" formControlName="cardName" placeholder="As on card" />
+
+      <button class="btn-primary" (click)="payByCard()" [disabled]="cardForm.invalid || isProcessing">
+        <span *ngIf="!isProcessing">Pay {{ data.totalPrice | currency:'₦':true }} →</span>
+        <span *ngIf="isProcessing" class="processing-text">Processing...</span>
+      </button>
+    </div>
+
+    <!-- Bank Transfer Tab -->
+    <div *ngIf="activePayTab === 'transfer'">
+      <div class="bank-transfer-box">
+        <p class="bank-note">Transfer exactly this amount to:</p>
+        <div class="bank-name">Wema Bank</div>
+        <div class="bank-acct">7823 456 001</div>
+        <div class="bank-acct-name">FoodDash Nigeria Ltd</div>
+        <div class="bank-timer">⏱ Expires in {{ countdownDisplay }}</div>
+      </div>
+      <p class="transfer-note">We'll confirm your payment automatically once received.</p>
+
+      <button class="btn-primary" (click)="payByTransfer()" [disabled]="isProcessing">
+        <span *ngIf="!isProcessing">I've Sent the Money ✓</span>
+        <span *ngIf="isProcessing" class="processing-text">Confirming...</span>
+      </button>
+    </div>
+
+    <button class="btn-secondary" (click)="goToDelivery()">← Back</button>
+  </div>
+</ng-container>
+
+<!-- ───── STEP 3: ORDER CONFIRMED ───── -->
+<ng-container *ngIf="currentStep === 3">
+  <div class="success-header">
+    <div class="checkmark-circle">✓</div>
+    <div class="success-title">Order Placed!</div>
+    <div class="success-sub">Payment received successfully</div>
+    <div class="order-badge">ORDER #{{ orderNumber }}</div>
+  </div>
+
+  <div class="order-items">
+    <div class="order-section-label">Your Order</div>
+    <div class="order-row" *ngFor="let item of data.cart.items">
+      <span class="food-name">{{ item.food.name }} × {{ item.quantity }}</span>
+      <span class="food-price">{{ item.price | currency:'₦':true }}</span>
+    </div>
+  </div>
+
+  <div class="order-total-row">
+    <span>Total Paid</span>
+    <span>{{ data.totalPrice | currency:'₦':true }}</span>
+  </div>
+
+  <div class="delivery-info">
+    <div class="order-section-label">Delivery Details</div>
+    <div class="delivery-detail">📍 {{ deliveryForm.get('address')?.value }}</div>
+    <div class="delivery-detail">📞 {{ deliveryForm.get('phone')?.value }}</div>
+    <div class="eta-badge">🚴 Estimated delivery: 30–45 mins</div>
+  </div>
+
+  <div class="success-footer">
+    <button class="btn-primary success-btn" (click)="backToHomepage()">
+      ← Back to Homepage
+    </button>
+  </div>
+</ng-container>
