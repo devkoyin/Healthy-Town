@@ -1,9 +1,13 @@
 <app-not-found  [visible]="!cart || cart.items.length <=0"
 notFoundMessage = "Cart Page is Empty!"
 resetLinkText = "Go to Homepage"
->
+>  
 
 </app-not-found>
+
+
+
+<!-- <app-checkout-modal></app-checkout-modal> -->
 
 <div *ngIf="cart && cart.items.length >0"   class="container">
 
@@ -50,7 +54,11 @@ resetLinkText = "Go to Homepage"
   <div class="checkout">
       <div class="food-count">{{cart.items.length}}</div>
       <div class="total-price">{{cart.totalPrice | currency : "₦" : true }}</div>
-      <button class="Checkout-button">Checkout</button>
+      <button
+      (click)="openCheckoutModal()"
+      [disabled]="!proceedToCheckOut"
+      class="Checkout-button">Checkout
+    </button>
   </div>
   
 </div>

@@ -31,7 +31,7 @@ activatedroute.params.subscribe((params) => {
 });
    }
 
-   ngOnInIt(): void {
+   ngOnInit(): void {
 
    }
 
