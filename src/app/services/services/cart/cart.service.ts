@@ -34,4 +34,8 @@ export class CartService {
   getCart(): Cart {
     return this.cart;
   }
+
+  clearCart(): void {
+    this.cart = new Cart();
+  }
 }
