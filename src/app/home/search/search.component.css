@@ -1,37 +1,46 @@
-div{
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
+div {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  padding: 0 1rem;
 }
 
-div input{
-    border-radius: 10rem 0 0 10rem;
-    border: 0.1px solid #06402B;
-    height: 3rem;
-    width: 20rem;
-    background-color: white;
-    color: #06402B;
-    padding: 1.2rem;
-    font-size: 1rem;
-    font-weight: 500;
-    outline: none;
+div input {
+  border-radius: 10rem 0 0 10rem;
+  border: 0.1px solid #06402B;
+  height: 3rem;
+  width: min(20rem, 100%);
+  background-color: white;
+  color: #06402B;
+  padding: 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  outline: none;
 }
 
-div button{
-    color: grey;
-    height: 3rem;
-    width: 5rem;
-    font-size: 1rem;
-    border-radius: 0 10rem 10rem 0;
-    border: none;
-    background-color: #06402B;
-    opacity: 0.8;
-    color: #E4FDE1;
-    outline: none;
+div button {
+  height: 3rem;
+  width: 5rem;
+  font-size: 1rem;
+  border-radius: 0 10rem 10rem 0;
+  border: none;
+  background-color: #06402B;
+  opacity: 0.8;
+  color: #E4FDE1;
+  outline: none;
+  flex-shrink: 0;
 }
 
-div button:hover{
-  opacity: 1; 
-  cursor: pointer;  
+div button:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  div input {
+    width: calc(100% - 5rem);
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
 }

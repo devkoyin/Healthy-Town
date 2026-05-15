@@ -357,3 +357,18 @@
 .success-footer { padding: 18px 24px; }
 
 .success-btn { background: #487800; }
+
+@media (max-width: 540px) {
+  .dialog-header { padding: 14px 16px; }
+  .stepper { padding: 12px 16px; }
+  .dialog-body { padding: 16px 16px 18px; }
+  .amount-badge { font-size: 13px; padding: 6px 12px; }
+  .bank-acct { font-size: 20px; letter-spacing: 2px; }
+  .success-header { padding: 24px 16px 18px; }
+  .order-items { padding: 12px 16px; }
+  .order-total-row { padding: 10px 16px; }
+  .delivery-info { padding: 12px 16px; }
+  .success-footer { padding: 14px 16px; }
+  .checkmark-circle { width: 56px; height: 56px; font-size: 26px; }
+  .success-title { font-size: 20px; }
+}

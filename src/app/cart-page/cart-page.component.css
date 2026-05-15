@@ -1,140 +1,200 @@
-.container{
-    display: flex;
-    flex-wrap: wrap;
-align-items: flex-start;
-margin: 1.5rem;
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 1.5rem;
 }
 
-ul{
-    display: flex;
-    flex-direction: column;
-    flex : 3 0;
-    justify-content: space-evenly;
-    border: 1px solid #808000;
-    border-radius: 1rem;
-    list-style-type: none;
-    margin: 0.5rem;
-    padding: 0;
+ul {
+  display: flex;
+  flex-direction: column;
+  flex: 3 0;
+  justify-content: space-evenly;
+  border: 1px solid #808000;
+  border-radius: 1rem;
+  list-style-type: none;
+  margin: 0.5rem;
+  padding: 0;
+  min-width: 0;
 }
 
-ul li{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap ;
-    border-bottom: 1px solid #06402B;
+ul li {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #06402B;
+  padding: 0.5rem 0;
 }
 
-ul li:last-child{
-    border: none;
+ul li:last-child {
+  border: none;
 }
 
-ul li div{
-    padding: 1rem;
+ul li div {
+  padding: 0.75rem;
 }
 
-ul li div:not(:first-child){
-    flex-basis: 18%;
+ul li div:not(:first-child) {
+  flex-basis: 18%;
 }
 
-.food-name{
-    color: #487800;
+.food-name {
+  color: #487800;
 }
 
-ul li select{
-width: 2.5rem;
-border-radius: 0.5rem;
-outline: none;
-border: 1px solid #808000;
-font-size: 1rem;
-background-color: #E4FDE1;
-color: #06402B;
+ul li select {
+  width: 2.5rem;
+  border-radius: 0.5rem;
+  outline: none;
+  border: 1px solid #808000;
+  font-size: 1rem;
+  background-color: #E4FDE1;
+  color: #06402B;
 }
 
-ul .remove-button{
-    border: 1px solid #808000;
-    border-radius: 5rem;
-    color: #06402B;
-    background-color: #E4FDE1;
-    padding: 0.3rem;
-    opacity: 70%;
+ul .remove-button {
+  border: 1px solid #808000;
+  border-radius: 5rem;
+  color: #06402B;
+  background-color: #E4FDE1;
+  padding: 0.3rem 0.6rem;
+  opacity: 70%;
+  white-space: nowrap;
 }
 
-ul .remove-button:hover{
-    opacity: 1;
-    cursor: pointer;   
+ul .remove-button:hover {
+  opacity: 1;
+  cursor: pointer;
 }
 
-.Checkout-button{
-    border: 1px solid #808000;
-    border-radius: 5rem;
-    color: #06402B;
-    background-color: #E4FDE1;
-    padding: 0.5rem 3rem; 
-    margin: 0.5rem;
+.Checkout-button {
+  border: 1px solid #808000;
+  border-radius: 5rem;
+  color: #06402B;
+  background-color: #E4FDE1;
+  padding: 0.5rem 3rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  max-width: 200px;
 }
 
-.checkout{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    flex: 1 3;
-    /* height: 20rem; */
-    border: 1px solid #808000;
-    border-radius: 1rem;
-    padding: 0.5rem;
-    margin: 0.5rem;
-
+.Checkout-button:hover {
+  background-color: #06402B;
+  color: #E4FDE1;
 }
 
-.checkout>div{
-    font-size: 1.5rem;
-    margin: 1rem;
-    flex:3;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
+.checkout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 0 200px;
+  border: 1px solid #808000;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
 }
 
-.checkout .food-count{
-    margin-bottom: 1.5rem;
-    color: #06402B;
-    /* display: flex;
-    flex-direction: row; */
+.checkout > div {
+  font-size: 1.5rem;
+  margin: 1rem;
+  flex: 3;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-.checkout .food-count::before{
-    content: 'Order-Count:';
-    color: #487800;
-    font-size: 1.5rem;
+.checkout .food-count {
+  margin-bottom: 1.5rem;
+  color: #06402B;
 }
 
-.checkout .total-price{
-    margin-bottom: 1.5rem;
-    color: #06402B;
+.checkout .food-count::before {
+  content: 'Order-Count:';
+  color: #487800;
+  font-size: 1.5rem;
 }
 
-.checkout .total-price::before{
-    content: 'Price:';
-    color: #487800;
-    font-size: 1.5rem;
+.checkout .total-price {
+  margin-bottom: 1.5rem;
+  color: #06402B;
 }
 
-img{
-    max-width: 8vw;
-    max-height: 8vh;
-    margin: 1rem;
-    object-fit: cover;
-    border-radius: 3rem;
-    flex: 1 0;
-   animation: zoomFade 0.5s ease-in-out;
+.checkout .total-price::before {
+  content: 'Price:';
+  color: #487800;
+  font-size: 1.5rem;
+}
+
+img {
+  max-width: 80px;
+  max-height: 80px;
+  min-width: 60px;
+  margin: 0.5rem;
+  object-fit: cover;
+  border-radius: 1rem;
+  flex-shrink: 0;
+  animation: zoomFade 0.5s ease-in-out;
   transform-origin: center;
-  /* animation-duration: 5s; */
   animation-timing-function: linear;
-  /* animation-delay: 2s; */
   animation-iteration-count: infinite;
   animation-direction: alternate;
-  } 
+}
 
+@keyframes zoomFade {
+  from { opacity: 0.85; transform: scale(0.97); }
+  to   { opacity: 1;    transform: scale(1); }
+}
+
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    margin: 0.75rem;
+  }
+
+  ul {
+    flex: none;
+    width: 100%;
+    margin: 0 0 0.75rem 0;
+  }
+
+  ul li {
+    justify-content: flex-start;
+    gap: 0.5rem;
+    padding: 0.75rem 0.5rem;
+  }
+
+  ul li div:not(:first-child) {
+    flex-basis: auto;
+  }
+
+  .checkout {
+    flex: none;
+    width: 100%;
+    margin: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 1rem;
+  }
+
+  .checkout > div {
+    font-size: 1.1rem;
+    margin: 0.5rem;
+  }
+
+  .checkout .food-count::before,
+  .checkout .total-price::before {
+    font-size: 1.1rem;
+  }
+
+  .Checkout-button {
+    max-width: none;
+    width: calc(100% - 1rem);
+    margin: 0.5rem;
+  }
+}

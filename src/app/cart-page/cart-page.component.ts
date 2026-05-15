@@ -58,7 +58,7 @@ export class CartPageComponent {
   openCheckoutModal(): void {
     this.dialog.open(CheckoutModalComponent, {
       data: { cart: this.cart, totalPrice: this.cart.totalPrice },
-      width: '520px',
+      width: 'min(520px, 95vw)',
       disableClose: true,
     });
   }
